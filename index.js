@@ -96,6 +96,6 @@ client.on("message", function(message) {
     }    
 })
 
-client.login(config.BOT_TOKEN);
+client.login(process.env.TOKEN);
 
 
