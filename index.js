@@ -63,17 +63,20 @@ client.on("message", function(message) {
           if(message.content.startsWith('https://') && message.content.includes('youtube.com')) {
             const expression = /(https?:\/\/(?:www\.|(?!www))[^\s\.]+\.[^\s]{2,}|www\.[^\s]+\.[^\s]{2,})/gi;
             var matches = message.content.match(expression); 
-                
+              console.log("path", path)
               if(fs.existsSync(path)) {
                 let existingData = JSON.parse(fs.readFileSync(path, "utf8"))
-                
+                console.log("existingData", existingData)
                 if(!existingData.includes(matches[0])) {
                   matches.forEach(match => existingData.push(match))
+                  console.log('matches', matches)
                 }
+                console.log('matches', matches)
   
                 fs.writeFileSync(path, JSON.stringify(existingData));
   
                 numberOfLinks = existingData.length;
+                console.log("numberOfLinks", numberOfLinks)
                 message.reply(`${numberOfLinks} Links stored!`)
                 return;
               } else {
