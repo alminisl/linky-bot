@@ -35,7 +35,7 @@ client.on("message", function(message) {
       try{
         let existingData = JSON.parse(fs.readFileSync(path, "utf8"))
         let dataStr = existingData.join(', ')
-        message.reply(`Links stored in this channel(${existingData.length}: ${dataStr}`)
+        message.reply(`Links stored in this channel(${existingData.length}): ${dataStr}`)
         return;
       } catch(err) {
         message.reply(`No Stored links!`)
@@ -74,6 +74,7 @@ client.on("message", function(message) {
                 fs.writeFileSync(path, JSON.stringify(existingData));
   
                 numberOfLinks = existingData.length;
+                message.reply(`${numberOfLinks} Links stored!`)
                 return;
               } else {
                 fs.appendFile(path, "", function (err) {
