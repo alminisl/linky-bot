@@ -13,7 +13,7 @@ res.writeHead(200, {
 });
     res.write('Hey');
     res.end();
-}).listen(4000);
+}).listen(process.env.PORT || 4000);
 
 client.on("message", function(message) {
   if (message.author.bot) return;
