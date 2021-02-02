@@ -54,6 +54,7 @@ client.on("message", function(message) {
     }
     
     if(args[0] === "store") {
+      console.log("IM STORE")
       message.channel.messages.fetch()
       .then(messages => {
         const data = {}
