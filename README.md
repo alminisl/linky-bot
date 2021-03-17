@@ -3,4 +3,4 @@
 # linky-bot
 Linky a Discord bot
 
-More info to be added! 
+## TODO: More info incoming!
